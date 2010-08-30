@@ -1,5 +1,5 @@
 from django.contrib import admin
-from evilsheep.catelog.models import Product, SuperCategory, SubCategory, Book
+from evilsheep.catalog.models import Product, SuperCategory, SubCategory, Book
 
 class BookAdmin(admin.ModelAdmin):
     pass

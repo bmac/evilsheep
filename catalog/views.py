@@ -1,5 +1,7 @@
 # Create your views here.
-
+from catalog.models import *
+from django.shortcuts import render_to_response, get_object_or_404
+from django.template import RequestContext
 
 def show_product(request, product_slug):
     product = get_object_or_404(Product, slug=product_slug)
