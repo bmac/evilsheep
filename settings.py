@@ -95,6 +95,28 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'evilsheep.catalog',
+    'evilsheep.utils',
     'djangodblog',
     'django_extensions',
 )
+
+
+# List of processors used by RequestContext to populate the context.
+# Each one should be a callable that takes the request object as its
+# only parameter and returns a dictionary to add to the context.
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+#    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'evilsheep.utils.context_processors.ecomstore',
+)
+
+
+SITE_NAME = 'Gift for Gift'
+META_KEYWORDS = 'Gift, Discover, Connect'
+META_DESCRIPTION = 'Buy a gift for someone and recieve a gift in return.'
+
+
