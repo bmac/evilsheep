@@ -28,6 +28,3 @@ class CartItem(models.Model):
     def augement_quantity(self, quantity):
         self.quantity = self.quantity + int(quantity)
         self.save()
-
-    
-        
