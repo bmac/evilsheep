@@ -96,5 +96,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'evilsheep.catalog',
     'djangodblog',
-    'django_extentions',
+    'django_extensions',
 )
