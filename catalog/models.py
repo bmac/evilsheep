@@ -51,7 +51,7 @@ class Product(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('products_product', (), {'product_slug': self.slug })
+        return ('catalog_product', (), {'product_slug': self.slug })
 
 class CatActiveManager(models.Manager):
     def get_query_set(self):
@@ -77,7 +77,7 @@ class SuperCategory(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('catelog_supercategory', (), {'supercat_slug': self.slug })
+        return ('catalog_supercategory', (), {'supercat_slug': self.slug })
 
 
 class SubCategory(models.Model):
@@ -105,9 +105,9 @@ class SubCategory(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('catelog_subcategory', (), {'subcat_slug': self.slug })
-
-
+        return ('catalog_subcategory', (), {'subcat_slug': self.slug,
+                                            'supercat_slug': self.super_category.slug,
+                                            })
 
 class Book(Product):
     author = models.CharField(max_length=255)
