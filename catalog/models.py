@@ -44,7 +44,6 @@ class Product(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        
 
     def __unicode__(self):
         return self.name

@@ -4,8 +4,8 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('evilsheep.catalog.views',
                        (r'^$', 'index', {}, 'catalog_home'),
-                       # (r'^(?P<supercat_slug>[-\W]+)/(?P<subcat_slug>[-\W]+)/$', 'show_sub_cat', {}, 'catalog_subcategory'),
-                       # (r'^(?P<supercat_slug>[-\W]+)/$', 'show_sub_cat', {}, 'catalog_supercategory'),
-                       url(r'^(?P<supercat_slug>.*)/(?P<subcat_slug>.*)/(?P<product_slug>.*)/$', 'show_product', name='catalog_product'),
+                       (r'^(?P<supercat_slug>[-\w]+)/(?P<subcat_slug>[-\w]+)/$', 'show_sub_cat', {}, 'catalog_subcategory'),
+                       (r'^(?P<supercat_slug>[-\w]+)/$', 'show_super_cat', {}, 'catalog_supercategory'),
+                       url(r'^(?P<supercat_slug>[-\w]+)/(?P<subcat_slug>[-\w]+)/(?P<product_slug>[-\w]+)/$', 'show_product', name='catalog_product'),
 
 )

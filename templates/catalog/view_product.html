@@ -1,0 +1,16 @@
+{% extends 'catalog/catalog.html' %}
+
+{% block content %}
+<div>
+<a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+<br />Price: {{ product.price }}
+<br />Author: {{ product.book.author }}
+{% if product.book.publisher %}
+<br />Publisher: product.book.publisher
+{% endif %}
+
+<p>{{ product.description }}</p>
+<img src="{{ product.image }}" class="" alt="meta_description" />
+</div>
+{% endblock content %}
+

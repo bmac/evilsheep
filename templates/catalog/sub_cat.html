@@ -1,0 +1,17 @@
+{% extends 'catalog/catalog.html' %}
+
+{% block content %}
+<div>
+{% for cat in sub_categories %}
+{% if cat == current_cat %}
+{{ cat.name }}
+{% else %}
+<a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a> 
+{% endif %}
+{% if not forloop.last %}
+ | 
+{% endif %}
+{% endfor %}
+</div>
+{% endblock content %}
+
