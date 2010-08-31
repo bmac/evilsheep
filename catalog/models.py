@@ -59,7 +59,7 @@ class Product(models.Model):
 
 class CatActiveManager(models.Manager):
     def get_query_set(self):
-        return super(ProductActiveManager, self).get_query_set().filter(is_active=True)
+        return super(CatActiveManager, self).get_query_set().filter(is_active=True)
 
 class SuperCategory(models.Model):
     name = models.CharField(unique=True, max_length=100)
