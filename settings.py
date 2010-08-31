@@ -96,6 +96,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'evilsheep.catalog',
     'evilsheep.utils',
+    'evilsheep.cart',
     'djangodblog',
     'django_extensions',
 )
@@ -114,6 +115,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'evilsheep.utils.context_processors.ecomstore',
 )
 
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 90
 
 SITE_NAME = 'Gift for Gift'
 META_KEYWORDS = 'Gift, Discover, Connect'
