@@ -51,7 +51,6 @@ class Product(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        print 'cake'
         return ('catalog_product', (), {'product_slug': self.slug,
                                         'supercat_slug': self.category.super_category.slug,
                                         'subcat_slug': self.category.slug })
