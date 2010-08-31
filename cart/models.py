@@ -1,5 +1,5 @@
 from django.db import models
-from catalog import Product
+from catalog.models import Product
 # Create your models here.
 
 
@@ -28,3 +28,6 @@ class CartItem(models.Model):
     def augement_quantity(self, quantity):
         self.quantity = self.quantity + int(quantity)
         self.save()
+
+    def __unicode__(self):
+        return '%d %s in cart %s' % (quantity, product, cart_id) 
