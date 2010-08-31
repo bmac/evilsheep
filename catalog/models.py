@@ -51,7 +51,12 @@ class Product(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('catalog_product', (), {'product_slug': self.slug })
+        print 'cake'
+        return ('catalog_product', (), {'product_slug': self.slug,
+                                        'supercat_slug': self.category.super_category.slug,
+                                        'subcat_slug': self.category.slug })
+
+
 
 class CatActiveManager(models.Manager):
     def get_query_set(self):
@@ -89,7 +94,7 @@ class SubCategory(models.Model):
     meta_description = models.CharField(max_length=255, help_text='Content for description meta tag.')
     
 
-    product_queue = models.ForeignKey(Product)
+    #product_queue = models.ForeignKey(Product)
 
 
     # managers 
@@ -117,8 +122,6 @@ class Book(Product):
     pages = models.IntegerField(blank=True, null=True)
     publisher = models.CharField(blank=True, null=True, max_length=255)
     subject = models.CharField(blank=True, null=True, max_length=255)
-    
-    
-        
+
         
         

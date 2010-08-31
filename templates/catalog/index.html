@@ -1,6 +1,10 @@
 {% extends 'catalog/catalog.html' %}
 
 {% block content %}
-featured offer: {{ featured_offers.first }}
+
+{% for offer in featured_offers %}
+featured offer: <a href="{{ offer.get_absolute_url }}">{{ offer }}</a>
+{% endfor %}
+
 {% endblock content %}
 
