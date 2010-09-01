@@ -11,6 +11,13 @@
 
 <p>{{ product.description }}</p>
 <img src="{{ product.image }}" class="" alt="meta_description" />
+
+<form method="post" id="addtocart" action=".">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <br />
+  <input type="submit" value="Add to Cart" />
+</form>
 </div>
 {% endblock content %}
 

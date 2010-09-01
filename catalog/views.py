@@ -2,11 +2,31 @@
 from catalog.models import *
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
+from django.core import urlresolvers
+from evilsheep.cart import cart
+from catalog.forms import AddProductToCartForm
 
 def show_product(request, supercat_slug, subcat_slug, product_slug):
     product = get_object_or_404(Product, slug=product_slug, category__slug=subcat_slug, category__super_category__slug=supercat_slug, is_active=True)
     meta_keywords = product.meta_keywords
     meta_description = product.meta_description
+    if request.method == 'POST':
+        postdata = request.POST.copy()
+        form = AddProductToCartForm(request, postdata)
+        if form.is_valid():
+            cart.add_to_cart(request)
+            #remove the test cookie
+            if request.session.test_cookie_worked():
+                request.session.delete_test_cookie()
+            url = urlresolvers.reverse('show_cart')
+            return HttpResponseRedirect(url)
+    else:
+        form = AddProductToCartForm(request)
+    # assign the hidden input the product slug
+    form.fields['product_slug'].widget.attrs['value'] = product_slug
+    #set a test cookie with the get request
+    request.session.set_test_cookie()
     return render_to_response('catalog/view_product.html', locals(), context_instance=RequestContext(request))
 
 

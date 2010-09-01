@@ -2,7 +2,53 @@
 
 {% block content %}
 <div>
-<h1>Cart Page</h1>
-<p>{{ cart_item_count }}</p>
+  <h1>Cart Page</h1>
+  <p>{{ cart_item_count }}</p>
+
+  <table summary="Your Shopping Cart" id="shopping_cart">
+    <caption> Your Shopping Cart</caption>
+    <thead>
+      <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th></th>
+      <th></th>
+      <th scope="col">Total</th>
+      </tr>
+
+    </thead>
+    <tfoot>
+      <th class="right" colspan="5">
+      Cart Subtotal:
+      </th>
+      <th class="right">
+	{{ cart_subtotal }}
+      </th>
+      {% if cart_items %}
+      <tr>
+	<th colspan="6"><a href="./checkout">Checkout Now</a></th>
+      </tr>
+      {% endif %}
+      
+    </tfoot>
+    <tbody>
+      {% if cart_items %}
+      {% for item in cart_items %}
+      <tr>
+	<td>
+	  <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+	</td>
+	<td>{{ item.price }}</td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+	<td colspan="6"> Your cart is empty</td>
+      </tr>
+      {% endif %}
+      
+    </tbody>
+  </table>
+
 </div>
 {% endblock content %}
