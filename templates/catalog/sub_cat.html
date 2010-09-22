@@ -1,17 +1,46 @@
 {% extends 'catalog/catalog.html' %}
 
 {% block content %}
-<div>
-{% for cat in sub_categories %}
-{% if cat == current_cat %}
-{{ cat.name }}
-{% else %}
-<a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a> 
-{% endif %}
-{% if not forloop.last %}
- | 
-{% endif %}
+
+<h1 class="">{{ current_cat }}</h1>
+
+
+{% for p in products %}
+
 {% endfor %}
+
+<div class="product" >
+  <a href="#"><img  src="{{ p.thumbnail }}" alt="" />{{ p.name }}</a>
+  <br />
+  <div style="float: left;">
+    <div class="author">
+      by <a href="author">{{ p.book.author }}</a>
+    </div>
+    <div class="price" >
+      ${{ p.price }}
+    </div>
+  </div>
+  <div class="buy_now" >
+
+    <input type="submit" class="buy_button" value="Gift" />
+  </div>
+</div>
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">next</a>
+        {% endif %}
+    </span>
 </div>
 {% endblock content %}
 
