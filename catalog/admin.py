@@ -5,7 +5,7 @@ class BookAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     fieldsets = (
         (None, {
-                'fields': ('name', 'slug', 'author', 'price', 'description', 'category', 'is_active', 'is_featured', 'image', 'thumbnails', 'meta_keywords', 'meta_description', )
+                'fields': ('name', 'slug', 'author', 'price', 'description', 'category', 'is_active', 'is_featured', 'image', 'thumbnail', 'meta_keywords', 'meta_description', )
         }),
         ('Advanced options', {
             'classes': ('collapse',),

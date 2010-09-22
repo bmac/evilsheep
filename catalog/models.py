@@ -20,7 +20,7 @@ class Product(models.Model):
     bonus_offer = models.ForeignKey('catalog.SuperCategory', blank=True, null=True)
 
     image = models.ImageField(upload_to=MEDIA_ROOT)
-    thumbnails = models.ImageField(upload_to=MEDIA_ROOT)
+    thumbnail = models.ImageField(upload_to=MEDIA_ROOT)
     
     meta_keywords = models.CharField(max_length=255, help_text='Comma-delimited set of SEO keywords for meta tag.')
     meta_description = models.CharField(max_length=255, help_text='Content for description meta tag.')
