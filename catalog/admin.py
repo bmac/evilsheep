@@ -1,5 +1,5 @@
 from django.contrib import admin
-from evilsheep.catalog.models import Product, SuperCategory, SubCategory, Book
+from evilsheep.catalog.models import SuperCategory, SubCategory, Book, Movie, Product
 
 class BookAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
@@ -14,6 +14,9 @@ class BookAdmin(admin.ModelAdmin):
     )
     
 
+class MovieAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+    
 class SuperCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
@@ -21,8 +24,11 @@ class SuperCategoryAdmin(admin.ModelAdmin):
 class SubCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
+class ProductAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+    
 admin.site.register(Book, BookAdmin)
 admin.site.register(SuperCategory, SuperCategoryAdmin)
 admin.site.register(SubCategory, SubCategoryAdmin)
-
-
+admin.site.register(Movie, MovieAdmin)
+admin.site.register(Product, ProductAdmin)
