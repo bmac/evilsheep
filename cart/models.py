@@ -1,5 +1,5 @@
 from django.db import models
-from catalog.models import Product
+from evilsheep.catalog.models import Product
 # Create your models here.
 
 
@@ -7,7 +7,7 @@ class CartItem(models.Model):
     cart_id  = models.CharField(max_length=100)
     date_added = models.DateField(auto_now_add=True)
     quantity = models.IntegerField(default=1)
-    product = models.ForeignKey('catalog.product', unique=False)
+    product = models.ForeignKey(Product, unique=False)
     
     class Meta:
         ordering = ['date_added']
@@ -30,4 +30,4 @@ class CartItem(models.Model):
         self.save()
 
     def __unicode__(self):
-        return '%d %s in cart %s' % (quantity, product, cart_id) 
+        return '%d %s in cart %s' % (self.quantity, self.product, self.cart_id) 
