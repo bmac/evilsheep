@@ -1,5 +1,5 @@
 from django.db import models
-from settings import MEDIA_ROOT
+from evilsheep.settings import MEDIA_ROOT
 # Create your models here.
 
 class ProductActiveManager(models.Manager):
@@ -19,8 +19,8 @@ class Product(models.Model):
     is_featured = models.BooleanField(default=False)
     bonus_offer = models.ForeignKey('catalog.SuperCategory', blank=True, null=True)
 
-    image = models.ImageField(upload_to=MEDIA_ROOT)
-    thumbnail = models.ImageField(upload_to=MEDIA_ROOT)
+    image = models.ImageField(upload_to='product_img')
+    thumbnail = models.ImageField(upload_to='product_thumb')
     
     meta_keywords = models.CharField(max_length=255, help_text='Comma-delimited set of SEO keywords for meta tag.')
     meta_description = models.CharField(max_length=255, help_text='Content for description meta tag.')
@@ -121,5 +121,8 @@ class Book(Product):
     publisher = models.CharField(blank=True, null=True, max_length=255)
     subject = models.CharField(blank=True, null=True, max_length=255)
 
-        
-        
+    
+class Movie(Product):
+    pass
+
+
