@@ -1,5 +1,5 @@
 # Create your views here.
-from catalog.models import *
+from evilsheep.catalog.models import *
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
@@ -13,6 +13,8 @@ def show_product(request, supercat_slug, subcat_slug, product_slug):
     product = get_object_or_404(Product, slug=product_slug, category__slug=subcat_slug, category__super_category__slug=supercat_slug, is_active=True)
     meta_keywords = product.meta_keywords
     meta_description = product.meta_description
+    super_cat = SuperCategory.objects.get(slug=supercat_slug)
+    sub_cat = SubCategory.objects.get(slug=subcat_slug)
     if request.method == 'POST':
         postdata = request.POST.copy()
         form = AddProductToCartForm(request, postdata)
@@ -38,18 +40,8 @@ def index(request):
 
 def show_super_cat(request, supercat_slug):
     super_cat = get_object_or_404(SuperCategory, slug=supercat_slug, is_active=True)
-    sub_categories = SubCategory.active.filter(super_category=super_cat)
-    meta_keywords = super_cat.meta_keywords
-    meta_description = super_cat.meta_description
-    return render_to_response('catalog/super_cat.html', locals(), context_instance=RequestContext(request))
-
-
-def show_sub_cat(request, supercat_slug, subcat_slug):
-
-    current_cat = get_object_or_404(SubCategory, slug=subcat_slug, 
-                   super_category__slug=supercat_slugm, is_active=True)
-    products = Product.active.filter(category__slug=subcat_slug).order_by('name')
-    paginator = Paginator(products, 16) # Show 8 contacts per page
+    products = Product.active.filter(category__super_category__slug=supercat_slug).order_by('name')
+    paginator = Paginator(products, 20) # Show 8 contacts per page
 
     # Make sure page request is an int. If not, deliver first page.
     try:
@@ -63,7 +55,33 @@ def show_sub_cat(request, supercat_slug, subcat_slug):
     except (EmptyPage, InvalidPage):
         products = paginator.page(paginator.num_pages)
 
-    current_cat = get_object_or_404(SubCategory, slug=subcat_slug, super_category__slug=supercat_slug, is_active=True)
+
+
+    sub_categories = SubCategory.active.filter(super_category=super_cat)
+    meta_keywords = super_cat.meta_keywords
+    meta_description = super_cat.meta_description
+    return render_to_response('catalog/super_cat.html', locals(), context_instance=RequestContext(request))
+
+
+def show_sub_cat(request, supercat_slug, subcat_slug):
+
+    current_cat = get_object_or_404(SubCategory, slug=subcat_slug, 
+                   super_category__slug=supercat_slug, is_active=True)
+    products = Product.active.filter(category__slug=subcat_slug).order_by('name')
+    paginator = Paginator(products, 20) # Show 8 contacts per page
+
+    # Make sure page request is an int. If not, deliver first page.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        products = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        products = paginator.page(paginator.num_pages)
+
     sub_categories = SubCategory.active.filter(super_category__slug=supercat_slug)
     meta_keywords = current_cat.meta_keywords
     meta_description = current_cat.meta_description
