@@ -97,8 +97,8 @@ INSTALLED_APPS = (
     'evilsheep.catalog',
     'evilsheep.utils',
     'evilsheep.cart',
-    'djangodblog',
-    'django_extensions',
+    'evilsheep.djangodblog',
+    'evilsheep.django_extensions',
 )
 
 
