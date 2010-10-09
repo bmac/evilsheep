@@ -15,83 +15,82 @@
     <title>{% block title %}
       {% if page_title  %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock title %}</title>
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css"
-    type="text/css" media="screen" />
+          type="text/css" media="screen" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="{{ meta_keywords }}" />
     <meta name="description" content="{{ meta_description }}" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/g4g.js"></script>
   </head>
   <body>
     <div id="header">
-      <div id="search">
-        <form method="get" action="">
-          <fieldset>
-            <legend>Quick Search</legend>
-            <input id="s" type="text" name="s" value="" />
-            <input id="x" type="submit" value="Search" />
-          </fieldset>
-        </form>
-      </div>
       <div id="logo">
         <h1><a href="#">Gift for Gift</a></h1>
 
       </div>
-      <div id="menu">
+      <div class="login">
+        <a href="#">login</a> or <a href="#">register</a>
+      </div>
+      <br />
+      <div id="menu" class="hdiv">
         <ul>
           <li><a href="#">About</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Forms</a></li>
-	  <li><a href="#">Podcast</a></li>
+          <li><a href="#">Podcast</a></li>
           <li><a href="#">Contact</a></li>
-          <li><a href="#">FAQ</a></li>
         </ul>
+        <div id="search">
+          <form method="get" action="">
+            <input id="s" type="text" name="s" value="Search..." />
+            <input id="x" type="submit" value="Search" />
+          </form>
+        </div>
+
+        <div id="cart">
+          <a href="/cart">
+            <img src="/static/css/images/cart.png" class="" alt="" />
+            <div class="your_cart">Your Cart</div>
+            <span class="item_count">{{ item_count }} item{{ item_count|pluralize }}</span>
+          </a>
+        </div>
       </div>
     </div>
     <!-- start page -->
     <div id="page">
       <!-- start content -->
       <div id="content">
-    {% block site_wrapper %}{% endblock site_wrapper %}
+        {% block site_wrapper %}{% endblock site_wrapper %}
 
-    </div>
-    <!-- end content -->
-    <!-- start sidebar -->
-    <div id="sidebar">
-      <a href="home">Home</a> > <a href="books">Books</a> > <a href="sci-fi">Sci-fi</a>
-      <ul>
-        <li>
-          <h2>Genres</h2>
-          <ul>
-            <li><a href="#">Comics</a></li>
-            <li><a href="#">Fantasy</a></li>
-            <li><a href="#">Sci-fi</a></li>
-            <li><a href="#">Romance</a></li>
-            <li><a href="#">History</a></li>
-            <li><a href="#">Self-help</a></li>
-          </ul>
-        </li>
-        <li>
-          <h2>Archives</h2>
-          <ul>
-            <li><a href="#">September</a> (23)</li>
-            <li><a href="#">August</a> (31)</li>
-            <li><a href="#">July</a> (31)</li>
-            <li><a href="#">June</a> (30)</li>
-            <li><a href="#">May</a> (31)</li>
-          </ul>
-        </li>
+      </div>
+      <!-- end content -->
+      <!-- start sidebar -->
+      <div id="sidebar">
+        <div id="breadcrumbs">
+	  {% block breadcrumbs %}
+	  
+	  {% endblock breadcrumbs %}
+	</div>
+        <ul>
+          <li>
+            <div class="hdiv"><h2>Genres</h2></div>
+	    {% block genres %}
+	    
+	    {% endblock genres %}
+          </li>
 
-      </ul>
+        </ul>
+      </div>
+      <!-- end sidebar -->
     </div>
-    <!-- end sidebar -->
-  </div>
-  <!-- end page -->
-  <div id="footer">
-    <p class="legal">&copy;2010 All Rights Reserved.</p>
-    <p class="credits">Designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
-  </div>
-</body>
+    <!-- end page -->
+    <div id="footer" class="hdiv">
+      <p class="legal">&copy;2010 Ides of Awesome LLC</p>
+      <p class="credits">Designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+    </div>
+  </body>
 </html>
 
-  </body>
+</body>
 </html>
 

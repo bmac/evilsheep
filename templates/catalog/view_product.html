@@ -1,23 +1,22 @@
 {% extends 'catalog/catalog.html' %}
 
+{% block breadcrumbs %}
+<a href="/">Home</a> > <a href="{{ super_cat.get_absolute_url }}">{{ super_cat }}</a> > <a href="{{ sub_cat.get_absolute_url }}">{{ sub_cat }}</a>
+{% endblock breadcrumbs %}
+
 {% block content %}
 <div>
-<a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-<br />Price: {{ product.price }}
-<br />Author: {{ product.book.author }}
-{% if product.book.publisher %}
-<br />Publisher: product.book.publisher
-{% endif %}
+  <h1>{{ product.name }}</h1>
+  <img src="{{ product.image.url }}" class="" alt="{{ meta_description }}" style="float:right;"/>
+  <br />Price: {{ product.price }}
+  <p>{{ product.description }}</p>
 
-<p>{{ product.description }}</p>
-<img src="{{ product.image }}" class="" alt="meta_description" />
-
-<form method="post" id="addtocart" action=".">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <br />
-  <input type="submit" value="Add to Cart" />
-</form>
+  <form method="post" id="addtocart" action=".">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br />
+    <input type="submit" value="Add to Cart" />
+  </form>
 </div>
 {% endblock content %}
 
