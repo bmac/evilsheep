@@ -1,5 +1,11 @@
 {% extends 'catalog/catalog.html' %}
 
+{% block breadcrumbs %}
+<a href="/">Home</a>
+{% endblock breadcrumbs %}
+
+
+
 {% block content %}
 
 {% for offer in featured_offers %}
@@ -8,3 +14,10 @@ featured offer: <a href="{{ offer.get_absolute_url }}">{{ offer }}</a>
 
 {% endblock content %}
 
+{% block genres %}
+            <ul>
+	      {% for cat in sub_categories %}
+              <li><a href="{{ cat.get_absolute_url }}">{{ cat }}</a></li>
+	      {% endfor %}
+            </ul>
+{% endblock genres %}

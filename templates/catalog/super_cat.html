@@ -74,11 +74,3 @@
     </span>
 </div>
 {% endblock content %}
-
-{% block genres %}
-            <ul>
-	      {% for cat in sub_categories %}
-              <li><a href="{{ cat.get_absolute_url }}">{{ cat }}</a></li>
-	      {% endfor %}
-            </ul>
-{% endblock genres %}

@@ -74,9 +74,11 @@
         <ul>
           <li>
             <div class="hdiv"><h2>Genres</h2></div>
-	    {% block genres %}
-	    
-	    {% endblock genres %}
+	    <ul>
+	    {% for cat in sub_cats %}
+	  <li><a href="{{ cat.get_absolute_url }}">{{ cat }}</a></li>
+	    {% endfor %}
+	    </ul>
           </li>
 
         </ul>

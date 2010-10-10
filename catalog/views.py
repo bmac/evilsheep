@@ -55,16 +55,12 @@ def show_super_cat(request, supercat_slug):
     except (EmptyPage, InvalidPage):
         products = paginator.page(paginator.num_pages)
 
-
-
-    sub_categories = SubCategory.active.filter(super_category=super_cat)
     meta_keywords = super_cat.meta_keywords
     meta_description = super_cat.meta_description
     return render_to_response('catalog/super_cat.html', locals(), context_instance=RequestContext(request))
 
 
 def show_sub_cat(request, supercat_slug, subcat_slug):
-
     current_cat = get_object_or_404(SubCategory, slug=subcat_slug, 
                    super_category__slug=supercat_slug, is_active=True)
     products = Product.active.filter(category__slug=subcat_slug).order_by('name')
@@ -82,7 +78,6 @@ def show_sub_cat(request, supercat_slug, subcat_slug):
     except (EmptyPage, InvalidPage):
         products = paginator.page(paginator.num_pages)
 
-    sub_categories = SubCategory.active.filter(super_category__slug=supercat_slug)
     meta_keywords = current_cat.meta_keywords
     meta_description = current_cat.meta_description
     
