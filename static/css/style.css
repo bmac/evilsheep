@@ -169,6 +169,13 @@ a:hover {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    -moz-box-shadow: 2px 2px 4px #375362;
+    -webkit-box-shadow: 2px 2px 4px #375362;
+    box-shadow: 2px 2px 4px #375362;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#375362')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#375362');
 }
 
 
@@ -316,7 +323,13 @@ div.product {
 
 .product img {
     border: 0px;
-
+    -moz-box-shadow:3px 3px 6px #000000;
+    -webkit-box-shadow:3px 3px 6px #000000;
+    box-shadow:3px 3px 6px #000000;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=135, Color='#000000');
 }
 
 .pagination {
@@ -331,8 +344,13 @@ div.product {
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border-radius: 15px;
-    border-right: 1px solid #0092CF;
-    border-bottom: 1px solid #0092CF;
+    -moz-box-shadow:2px 2px 4px #0092CF;
+    -webkit-box-shadow:2px 2px 4px #0092CF;
+    box-shadow:2px 2px 4px #0092CF;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF');
 }
 
 .price {
@@ -349,14 +367,19 @@ div.product {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background-color:#B7D885;
-    border-bottom:2px solid #375362;
-    border-right:2px solid #375362;
     float:right;
     height:50px;
     margin-bottom:5px;
     margin-right:20px;
     margin-top:5px;
     width:130px;
+    -moz-box-shadow:2px 2px 3px #375362;
+    -webkit-box-shadow:2px 2px 3px #375362;
+    box-shadow:2px 2px 3px #375362;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#375362')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#375362');
 }
 
 #cart a {
