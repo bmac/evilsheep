@@ -233,6 +233,10 @@ a:hover {
     text-decoration: none;
 }
 
+#sidebar img {
+    border: 0px;
+}
+
 
 /* Footer */
 

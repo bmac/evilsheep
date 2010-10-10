@@ -36,7 +36,7 @@
         <ul>
           <li><a href="#">About</a></li>
           <li><a href="#">Blog</a></li>
-          <li><a href="#">Forms</a></li>
+          <li><a href="#">Forums</a></li>
           <li><a href="#">Podcast</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -67,18 +67,26 @@
       <!-- start sidebar -->
       <div id="sidebar">
         <div id="breadcrumbs">
-	  {% block breadcrumbs %}
-	  
-	  {% endblock breadcrumbs %}
-	</div>
+          {% block breadcrumbs %}
+
+          {% endblock breadcrumbs %}
+        </div>
         <ul>
           <li>
             <div class="hdiv"><h2>Genres</h2></div>
-	    <ul>
-	    {% for cat in sub_cats %}
-	  <li><a href="{{ cat.get_absolute_url }}">{{ cat }}</a></li>
-	    {% endfor %}
-	    </ul>
+            <ul>
+              {% for cat in sub_cats %}
+              <li><a href="{{ cat.get_absolute_url }}">{{ cat }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li>
+            <div class="hdiv"><h2>Be Social</h2></div>
+            <ul>
+              <li>Post in our Forums</li>
+              <li><a href="http://www.twitter.com/giftforgift"><img src="http://twitter-badges.s3.amazonaws.com/follow_us-b.png" alt="Follow Gift For Gift on Twitter"/></a></li>
+              <li><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FGift-for-Gift%2F120779691311997&amp;layout=standard&amp;show_faces=true&amp;width=200&amp;action=like&amp;colorscheme=light&amp;height=30" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:30px;" allowTransparency="true"></iframe></li>
+            </ul>
           </li>
 
         </ul>
