@@ -395,3 +395,8 @@ div.product {
     margin-right:55px;
     margin-top:30px;
 }
+
+.product_img {
+    float: left;
+    padding: 20px;
+}
