@@ -10,7 +10,7 @@ import os
 def get_a_document(name="/tmp/doc.xml"):
     return xml.dom.minidom.parse(name)
 
-dom = get_a_document('/Users/bmac/Downloads/dvdg4g.xml')
+dom = get_a_document(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'products/dvdg4g.xml'))
 
 mov_cat = SubCategory.objects.all()[0]
 
