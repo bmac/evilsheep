@@ -1,7 +1,7 @@
 {% extends 'catalog/catalog.html' %}
 
 {% block breadcrumbs %}
-<a href="/">Home</a> > <a href="{{ current_cat.super_category.get_absolute_url }}">{{ current_cat.super_category }}</a> > <a href="{{ current_cat.get_absolute_url }}">{{ current_cat }}</a>
+<a href="/">Home</a> > <a href="{{ current_cat.super_category.get_absolute_url }}">{{ current_cat.super_category }}</a> > {{ current_cat }}</a>
 {% endblock breadcrumbs %}
 
 {% block content %}
