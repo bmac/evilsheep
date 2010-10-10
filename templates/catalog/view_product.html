@@ -7,9 +7,11 @@
 {% block content %}
 <div>
   <h1>{{ product.name }}</h1>
-  <img src="{{ product.image.url }}" class="" alt="{{ meta_description }}" style="float:right;"/>
-  <br />Price: {{ product.price }}
-  <p>{{ product.description }}</p>
+  <img src="{{ product.image.url }}" class="product_img" alt="{{ meta_description }}" height="300"/>
+  <br />
+  <h2>{{ product.name }}</h2>
+  <br />
+  <div style="width: 70%;">{{ product.description|safe }}</div>
 
   <form method="post" id="addtocart" action=".">
     {% csrf_token %}

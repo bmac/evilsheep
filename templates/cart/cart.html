@@ -3,8 +3,6 @@
 {% block content %}
 <div>
   <h1>Cart Page</h1>
-  <p>{{ cart_item_count }}</p>
-
   <table summary="Your Shopping Cart" id="shopping_cart">
     <caption> Your Shopping Cart</caption>
     <thead>
@@ -39,6 +37,7 @@
 	  <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
 	</td>
 	<td>{{ item.price }}</td>
+	<td> {{ item.quantity }} </td>
       </tr>
       {% endfor %}
       {% else %}
