@@ -20,17 +20,24 @@ mov_cat = SubCategory.objects.all()[0]
 
 for node in dom.getElementsByTagName('item'):
     m = Movie()
-    m.name = node.getElementsByTagName('title')[0].firstChild.nodeValue
-    m.slug = slugify(m.name)
+    title = node.getElementsByTagName('title')[0].firstChild.nodeValue
+    title_junk_chars = title.find('(')
+    if title_junk_chars is not -1:
+        title_junk_chars += -1
+        m.name = title[:title_junk_chars]
+    else:
+        m.name = title
 
-    junk_chars_loc = m.slug.rfind('dvd')
-    if junk_chars_loc is not -1:
-        junk_chars_loc += 3
-        m.slug = m.slug[:junk_chars_loc]
-
-    print 'slug ', m.slug    
+    title_junk_chars = m.name.find('DVD')
+    if title_junk_chars is not -1:
+        title_junk_chars += -1
+        m.name = m.name[:title_junk_chars]
 
         
+    print 'name ', m.name
+    m.slug = slugify(m.name)
+    print 'slug ', m.slug
+    
     m.price = '20.00'
     m.description = node.getElementsByTagName('description')[0].firstChild.nodeValue
     m.brand = node.getElementsByTagName('brand_name')[0].firstChild.nodeValue
