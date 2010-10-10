@@ -318,6 +318,8 @@ div.product {
 .pagination {
     float: right;
     font-size: 1.1em;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 .hdiv {
