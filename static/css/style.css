@@ -314,15 +314,17 @@ div.product {
 
 .product a{
     text-decoration: none;
+    font-size: 1.2em;
 }
 
 .ptitle {
-    height: 30px;
+    height: 35px;
     overflow: hidden;
 }
 
 .product img {
     border: 0px;
+    margin-bottom: 5px;
     -moz-box-shadow:3px 3px 6px #000000;
     -webkit-box-shadow:3px 3px 6px #000000;
     box-shadow:3px 3px 6px #000000;
