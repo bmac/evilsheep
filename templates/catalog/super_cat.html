@@ -43,7 +43,12 @@
     </div>
   </div>
   <div class="buy_now" >
-    <input type="submit" class="buy_button" value="Gift" />
+    <form method="post" id="addtocart" action="{{ p.get_absolute_url }}">
+      {% csrf_token %}
+      <input type="hidden" name="quantity" value="1" id="id_quantity" />
+      <input type="hidden" name="product_slug" value="{{ p.slug }}" id="id_product_slug" />
+      <input type="submit" class="buy_button" value="Gift" />
+    </form>
   </div>
 </div>
 
