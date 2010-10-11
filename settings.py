@@ -1,7 +1,12 @@
 # Django settings for evilsheep project.
 import os
+import socket
 
-DEBUG = True
+if socket.gethostname() == 'centurion.wifi.wpi.edu':
+    DEBUG = TEMPLATE_DEBUG = True
+else:
+    DEBUG = False
+    
 TEMPLATE_DEBUG = DEBUG
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
