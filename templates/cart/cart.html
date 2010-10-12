@@ -3,28 +3,27 @@
 {% block content %}
 <div>
   <h1>Cart Page</h1>
-  <table summary="Your Shopping Cart" id="shopping_cart">
+  <table summary="Your Shopping Cart" id="shopping_cart" border="1">
     <caption> Your Shopping Cart</caption>
     <thead>
       <tr>
-      <th scope="col">Product</th>
+      <th scope="col">Shopping Cart Items</th>
       <th scope="col">Price</th>
-      <th></th>
-      <th></th>
+      <th scope="col">Quanity</th>
       <th scope="col">Total</th>
       </tr>
 
     </thead>
     <tfoot>
-      <th class="right" colspan="5">
+      <th class="right" colspan="4">
       Cart Subtotal:
       </th>
       <th class="right">
-	{{ cart_subtotal }}
+	$ {{ cart_subtotal|floatformat:2 }}
       </th>
       {% if cart_items %}
       <tr>
-	<th colspan="6"><a href="./checkout">Checkout Now</a></th>
+	<th colspan="5"><a href="./checkout">Checkout Now</a></th>
       </tr>
       {% endif %}
       
@@ -36,8 +35,11 @@
 	<td>
 	  <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
 	</td>
-	<td>{{ item.price }}</td>
-	<td> {{ item.quantity }} </td>
+	<td>$ {{ item.price|floatformat:2 }}</td>
+	<td>
+	  <label for="quantity_id_{{ item.product.slug }}" >Quantity</label>: <input type="text" name="quantity" value="{{ item.quantity }}" id="quantity_id_{{ item.product.slug }}" maxlength="2" size="2"/>
+	   </td>
+	<td>$ {{ item.total|floatformat:2 }} </td>
       </tr>
       {% endfor %}
       {% else %}
