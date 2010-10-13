@@ -11,16 +11,17 @@
       <th scope="col">Price</th>
       <th scope="col">Quanity</th>
       <th scope="col">Total</th>
+      <th scope="col"></th>
       </tr>
 
     </thead>
     <tfoot>
-      <th class="right" colspan="4">
+      <th class="right" colspan="3">
       Cart Subtotal:
       </th>
-      <th class="right">
+      <td class="right">
 	$ {{ cart_subtotal|floatformat:2 }}
-      </th>
+      </td
       {% if cart_items %}
       <tr>
 	<th colspan="5"><a href="./checkout">Checkout Now</a></th>
@@ -38,8 +39,10 @@
 	<td>$ {{ item.price|floatformat:2 }}</td>
 	<td>
 	  <label for="quantity_id_{{ item.product.slug }}" >Quantity</label>: <input type="text" name="quantity" value="{{ item.quantity }}" id="quantity_id_{{ item.product.slug }}" maxlength="2" size="2"/>
+	  <br /><a href="#">Update</a>
 	   </td>
 	<td>$ {{ item.total|floatformat:2 }} </td>
+	<td><img src="/static/css/images/cross.png" class="" alt="" /><a href="#"></a></td>
       </tr>
       {% endfor %}
       {% else %}

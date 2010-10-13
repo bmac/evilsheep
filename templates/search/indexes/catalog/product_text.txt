@@ -1,0 +1,7 @@
+{{ object.name }}
+{{ object.slug }}
+{{ object.description }}
+{{ object.brand }}
+{{ object.category.name }}
+{{ object.meta_keywords }}
+{{ object.meta_description }}

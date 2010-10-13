@@ -93,17 +93,23 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    # Contrib apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+
+    #Custom apps
     'evilsheep.catalog',
     'evilsheep.utils',
     'evilsheep.cart',
-    'evilsheep.djangodblog',
-    'evilsheep.django_extensions',
+
+    # Third party apps
+    'djangodblog',
+    'django_extensions',
+    'haystack',
 )
 
 
@@ -127,3 +133,5 @@ META_KEYWORDS = 'Gift, Discover, Connect'
 META_DESCRIPTION = 'Buy a gift for someone and recieve a gift in return.'
 
 
+HAYSTACK_SITECONF = 'evilsheep.search_sites'
+HAYSTACK_SEARCH_ENGINE = 'simple'

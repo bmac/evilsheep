@@ -1,15 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-    Design by Free CSS Templates
-    http://www.freecsstemplates.org
-    Released for free under a Creative Commons Attribution 2.5 License
-
-    Name       : Round House
-    Description: A fluid-width design suitable for blogs.
-    Version    : 1.0
-    Released   : 20071120
-
-  -->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>{% block title %}
@@ -41,8 +30,8 @@
           <li><a href="#">Contact</a></li>
         </ul>
         <div id="search">
-          <form method="get" action="">
-            <input id="s" type="text" name="s" value="Search..." />
+          <form method="get" action="/search">	    
+            <input id="s" type="text" name="q" value="{% if query  %}{{ query }}{% else %}Search...{% endif %}" />
             <input id="x" type="submit" value="Search" />
           </form>
         </div>
@@ -96,7 +85,7 @@
     <!-- end page -->
     <div id="footer" class="hdiv">
       <p class="legal">&copy;2010 </p>
-      <p class="credits">Designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+      <p class="credits">Modified from Roundhouse by  <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
     </div>
 <script type="text/javascript">
 
