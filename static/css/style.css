@@ -211,7 +211,8 @@ a:hover {
 
 #sidebar li {
     margin-bottom: 20px;
-
+    background-color: #B5E6EE;
+    -moz-border-radius: 15px;
 }
 
 #sidebar li ul {
@@ -222,7 +223,7 @@ a:hover {
     margin: 0;
     padding: 5px 10px;
     background: none;
-    border-bottom: 1px dotted #EEEEEE;
+    border-bottom: 1px solid #B6BDC6;
 }
 
 #sidebar h2 {
@@ -346,13 +347,13 @@ div.product {
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border-radius: 15px;
-    -moz-box-shadow:2px 2px 4px #0092CF;
-    -webkit-box-shadow:2px 2px 4px #0092CF;
-    box-shadow:2px 2px 4px #0092CF;
-    /* For IE 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF')";
-    /* For IE 5.5 - 7 */
-    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF');
+    /* -moz-box-shadow:2px 2px 4px #0092CF; */
+    /* -webkit-box-shadow:2px 2px 4px #0092CF; */
+    /* box-shadow:2px 2px 4px #0092CF; */
+    /* /\* For IE 8 *\/ */
+    /* -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF')"; */
+    /* /\* For IE 5.5 - 7 *\/ */
+    /* filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF'); */
 }
 
 .price {
