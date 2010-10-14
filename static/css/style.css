@@ -311,6 +311,8 @@ div.product {
     height: 260px;
     padding: 10px 15px;
     float: left;
+    border-top:2px dotted #B6BDC6;
+    margin-bottom:10px;
 }
 
 .product a{
@@ -339,7 +341,7 @@ div.product {
     float: right;
     font-size: 1.1em;
     padding-top: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 7px;
 }
 
 .hdiv {
