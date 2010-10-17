@@ -22,7 +22,7 @@
 	{% if user.is_authenticated %}
 	Welcome {{ user }}.  	<a href="/accounts/logout/">logout</a>
 	{% else %}
-	<a href="/accounts/login/?next={{ request.path }}">login</a> or <a href="/accounts/register/">register</a>
+	<a href="/accounts/login/?next={{ request.path }}">login</a> or <a href="/accounts/register/?next={{ request.path }}">register</a>
 	{% endif %}
       </div>
       <br />

@@ -14,7 +14,9 @@ Register
 <form method="post" action=".">
   {% csrf_token %}
   {{ form.as_p }}
-
+  {% if request.REQUEST.next %}
+  <input type="hidden" name="next" value="{{ request.REQUEST.next }}" />
+  {% endif %}
   <input type="submit" value="{% trans 'Submit' %}" />
 </form>
 {% endblock %}
