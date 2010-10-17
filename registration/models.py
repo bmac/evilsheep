@@ -93,7 +93,10 @@ class RegistrationManager(models.Manager):
         
         """
         salt = sha_constructor(str(random.random())).hexdigest()[:5]
-        activation_key = sha_constructor(salt+user.username).hexdigest()
+        username = user.username
+        if isinstance(username, unicode):
+            username = username.encode('utf-8')
+        activation_key = sha_constructor(salt+username).hexdigest()
         return self.create(user=user,
                            activation_key=activation_key)
         
@@ -239,9 +242,9 @@ class RegistrationProfile(models.Model):
             framework for details regarding these objects' interfaces.
 
         """
-        ctx_dict = { 'activation_key': self.activation_key,
-                     'expiration_days': settings.ACCOUNT_ACTIVATION_DAYS,
-                     'site': site }
+        ctx_dict = {'activation_key': self.activation_key,
+                    'expiration_days': settings.ACCOUNT_ACTIVATION_DAYS,
+                    'site': site}
         subject = render_to_string('registration/activation_email_subject.txt',
                                    ctx_dict)
         # Email subject *must not* contain newlines
