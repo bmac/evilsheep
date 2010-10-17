@@ -2,7 +2,7 @@
 import os
 import socket
 
-if socket.gethostname() == 'centurion.wifi.wpi.edu':
+if socket.gethostname() == 'centurion.wifi.wpi.edu' or socket.gethostname() == 'centurion.home':
     DEBUG = TEMPLATE_DEBUG = True
 else:
     DEBUG = False
@@ -112,6 +112,7 @@ INSTALLED_APPS = (
     'djangodblog',
     'django_extensions',
     'haystack',
+    'registration',
 )
 
 
@@ -137,3 +138,5 @@ META_DESCRIPTION = 'Buy a gift for someone and recieve a gift in return.'
 
 HAYSTACK_SITECONF = 'evilsheep.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'simple'
+
+MAILCHIMP_KEY = 'ad5aee6210f46305ac4f2aac390879bd-us2'
