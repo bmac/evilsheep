@@ -213,6 +213,8 @@ a:hover {
     margin-bottom: 20px;
     background-color: #B5E6EE;
     -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
 }
 
 #sidebar li ul {
