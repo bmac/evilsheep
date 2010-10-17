@@ -1,0 +1,14 @@
+{% extends "registration/accounts.html" %}
+{% load i18n %}
+
+{% block title  %}
+Registration Complete
+{% endblock title  %}
+
+{% block breadcrumbs %}
+{{ block.super }} > Registration Complete
+{% endblock breadcrumbs %}
+
+{% block content %}
+<p>{% trans "You are now registered. Activation email sent." %}</p>
+{% endblock %}

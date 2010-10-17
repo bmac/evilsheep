@@ -1,0 +1,14 @@
+{% extends "registration/accounts.html" %}
+{% load i18n %}
+
+{% block title  %}
+Logout
+{% endblock title  %}
+
+{% block breadcrumbs %}
+{{ block.super }} > Logout
+{% endblock breadcrumbs %}
+
+{% block content %}
+<p>{% trans "Logged out" %}</p>
+{% endblock %}
