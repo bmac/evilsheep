@@ -19,15 +19,18 @@
 
       </div>
       <div class="login">
-        <a href="#">login</a> or <a href="#">register</a>
+	{% if user.is_authenticated %}
+	Welcome {{ user }}.  	<a href="/accounts/logout/">logout</a>
+	{% else %}
+	<a href="/accounts/login/?next={{ request.path }}">login</a> or <a href="/accounts/register/">register</a>
+	{% endif %}
       </div>
       <br />
       <div id="menu" class="hdiv">
         <ul>
-          <li><a href="#">About</a></li>
+          <li><a href="/about/">About</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Forums</a></li>
-          <li><a href="#">Podcast</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
         <div id="search">
@@ -58,7 +61,7 @@
       <div id="sidebar">
         <div id="breadcrumbs">
           {% block breadcrumbs %}
-
+	  <a href="/">Home</a>
           {% endblock breadcrumbs %}
         </div>
         <ul>
