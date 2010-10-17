@@ -107,6 +107,7 @@ INSTALLED_APPS = (
     'evilsheep.catalog',
     'evilsheep.utils',
     'evilsheep.cart',
+    'evilsheep.accounts',
 
     # Third party apps
     'djangodblog',
