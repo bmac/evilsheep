@@ -434,3 +434,7 @@ div.product {
     float: left;
     padding: 20px;
 }
+
+.errorlist {
+    color: red;
+}
