@@ -27,7 +27,7 @@ from registration.views import register
 urlpatterns = patterns('',
                        url(r'^register/$',
                            register,
-                           { 'backend': 'registration.backends.onestepmailchimp.DefaultBackend' },
+                           { 'backend': 'registration.backends.onestepmailchimp.OneStepMCBackend' },
                            name='registration_register'),
 
                        url(r'^register/complete/$',

@@ -1,10 +1,18 @@
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
 
 from registration import signals
 from registration.forms import RegistrationForm
 
-from greatape import MailChimp
+from greatape import MailChimp, MailChimpError
+
+# import the logging library
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 class OneStepMCBackend(object):
     """
@@ -47,17 +55,24 @@ class OneStepMCBackend(object):
         new_user = User.objects.create_user(username, email, password)
         new_user.save()
 
-        lists = self.mc.lists()
-        self.mc.listSubscribe(
-            id=lists[0]['id'],
-            email_address=email,
-            merge_vars={'FNAME': username},
-            double_optin=False
-            )        
+
+        try: 
+            lists = self.mc.lists()
+            self.mc.listSubscribe(
+                id=lists[0]['id'],
+                email_address=email,
+                merge_vars={'FNAME': username},
+                double_optin=False
+                )
+        except MailChimpError, e:
+            print 'error ', e.msg
+            logger.error(e)
         
         signals.user_registered.send(sender=self.__class__,
                                      user=new_user,
                                      request=request)
+        user = authenticate(username=new_user.username, password=password)
+        login(request, user)
         return new_user
 
     def activate(self, request, activation_key):
