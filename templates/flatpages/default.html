@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ flatpage.title }}
+{% endblock title %}
+{% block breadcrumbs %}
+<a href="/">Home</a> > {{ flatpage.title }}
+{% endblock breadcrumbs %}
+{% block site_wrapper %}
+{{ flatpage.content }}
+{% endblock site_wrapper %}
+
