@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     (r'^accounts/', include('registration.backends.simple.urls')),
     (r'^cart/', include('evilsheep.cart.urls')),
     (r'^search/', include('haystack.urls')),
+    (r'^users/', include('accounts.urls')),
     (r'^', include('evilsheep.catalog.urls')),
 )
 
