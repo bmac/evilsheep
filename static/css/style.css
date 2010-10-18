@@ -313,7 +313,7 @@ div.product {
     height: 260px;
     padding: 10px 15px;
     float: left;
-    border-top:.5px solid #B6BDC6;
+    border-top: 1px solid #B6BDC6;
     margin-bottom:10px;
 }
 
