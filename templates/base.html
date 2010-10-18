@@ -20,9 +20,13 @@
       </div>
       <div class="login">
 	{% if user.is_authenticated %}
-	Welcome {{ user }}.  	<a href="/accounts/logout/">logout</a>
+	Welcome <a href="{{ user.get_absolute_url }}">{{ user }}</a> | <a href="/accounts/logout/">logout</a>
+	{% else %}
+	{% ifequal request.path '/accounts/logout/'  %}
+	<a href="/accounts/login/">login</a> or <a href="/accounts/register/">register</a>	
 	{% else %}
 	<a href="/accounts/login/?next={{ request.path }}">login</a> or <a href="/accounts/register/?next={{ request.path }}">register</a>
+	{% endifequal %}
 	{% endif %}
       </div>
       <br />
