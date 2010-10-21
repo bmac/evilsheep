@@ -33,11 +33,12 @@ h2 {
 }
 
 h3 {
+    margin-top: 1em;
     font-size: 1em;
 }
 
 p, ul, ol {
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 
 ul, ol {
@@ -226,6 +227,7 @@ a:hover {
     padding: 5px 10px;
     background: none;
     border-bottom: 1px solid #B6BDC6;
+    overflow:hidden;
 }
 
 #sidebar h2 {
