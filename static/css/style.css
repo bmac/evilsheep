@@ -39,6 +39,7 @@ h3 {
 
 p, ul, ol {
     margin-top: 1em;
+    font-size: 16px;
 }
 
 ul, ol {
@@ -440,3 +441,18 @@ div.product {
 .errorlist {
     color: red;
 }
+
+.avatar {
+background:url("images/image-shadow.png") no-repeat scroll center 99% transparent;
+cursor:pointer;
+float: left;
+padding: 10px;
+}
+
+.avatar  img {
+background:none repeat scroll 0 0 #FFFFFF;
+border:1px solid #D6D4D4;
+padding:10px;
+width:152px;
+}
+styles.css (line 158)
