@@ -2,7 +2,8 @@
 import os
 import socket
 
-if socket.gethostname() == 'centurion.wifi.wpi.edu' or socket.gethostname() == 'centurion.home':
+if socket.gethostname() == 'centurion.wifi.wpi.edu' or socket.gethostname() == 'centurion.home' \
+        or socket.gethostname() == 'Centurion.local':
     DEBUG = TEMPLATE_DEBUG = True
 else:
     DEBUG = False
