@@ -1,1 +1,5 @@
 *.pyc
+.ropeproject
+project.db
+static/product_img/
+static/product_thumb/
