@@ -446,7 +446,7 @@ div.product {
 background:url("images/image-shadow.png") no-repeat scroll center 99% transparent;
 cursor:pointer;
 float: left;
-padding: 10px;
+padding:10px 20px;
 }
 
 .avatar  img {
