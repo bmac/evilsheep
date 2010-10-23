@@ -33,9 +33,9 @@
       <div id="menu" class="hdiv">
         <ul>
           <li><a href="/about/">About</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="http://blog.giftforgift.com">Blog</a></li>
           <li><a href="#">Forums</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
         <div id="search">
           <form method="get" action="/search">	    
@@ -108,6 +108,11 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+</script>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
   </body>
 </html>
