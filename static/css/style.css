@@ -10,6 +10,10 @@
     padding: 0;
 }
 
+tr td {
+    padding: 10px;
+}
+
 body {
     margin: 20px;
     /* background: url("http://www.backgroundlabs.com/backgrounds/170.gif") repeat scroll 0 0 #FFFFFF; */
@@ -39,6 +43,7 @@ h3 {
 
 p, ul, ol {
     margin-top: 1em;
+    margin-bottom: 1em;
     font-size: 16px;
 }
 
@@ -354,13 +359,13 @@ div.product {
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border-radius: 15px;
-    /* -moz-box-shadow:2px 2px 4px #0092CF; */
-    /* -webkit-box-shadow:2px 2px 4px #0092CF; */
-    /* box-shadow:2px 2px 4px #0092CF; */
-    /* /\* For IE 8 *\/ */
-    /* -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF')"; */
-    /* /\* For IE 5.5 - 7 *\/ */
-    /* filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF'); */
+/* -moz-box-shadow:2px 2px 4px #0092CF; */
+/* -webkit-box-shadow:2px 2px 4px #0092CF; */
+/* box-shadow:2px 2px 4px #0092CF; */
+/* /\* For IE 8 *\/ */
+/* -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF')"; */
+/* /\* For IE 5.5 - 7 *\/ */
+/* filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#0092CF'); */
 }
 
 .price {
@@ -429,7 +434,7 @@ div.product {
 
 .login {
     float: right;
-    margin-right:55px;
+    margin-right:20px;
     margin-top:30px;
 }
 
@@ -443,16 +448,51 @@ div.product {
 }
 
 .avatar {
-background:url("images/image-shadow.png") no-repeat scroll center 99% transparent;
-cursor:pointer;
-float: left;
-padding:10px 20px;
+    background:url("images/image-shadow.png") no-repeat scroll center 99% transparent;
+    cursor:pointer;
+    float: left;
+    padding:10px 20px;
 }
 
 .avatar  img {
-background:none repeat scroll 0 0 #FFFFFF;
-border:1px solid #D6D4D4;
-padding:10px;
-width:152px;
+    background:none repeat scroll 0 0 #FFFFFF;
+    border:1px solid #D6D4D4;
+    padding:10px;
+    width:152px;
 }
-styles.css (line 158)
+
+.search_result_des {
+    margin: 0;
+    font-size: 13px;
+}
+
+.search_result_a {
+    text-decoration: none;   
+}
+
+.search_result_a img {
+    border: 0px;
+    margin-bottom: 5px;
+    -moz-box-shadow:3px 3px 6px #000000;
+    -webkit-box-shadow:3px 3px 6px #000000;
+    box-shadow:3px 3px 6px #000000;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=135, Color='#000000');
+}
+
+
+.login_form tbody tr th{
+    padding-bottom: 10px;
+    vertical-align: bottom;
+}
+
+.login_form tbody td ul{
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.login_form tbody td input[type=submit]{
+    float: right;
+}
