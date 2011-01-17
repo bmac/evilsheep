@@ -23,9 +23,9 @@
 	Welcome <a href="{{ user.get_absolute_url }}">{{ user }}</a> | <a href="/accounts/logout/">logout</a>
 	{% else %}
 	{% ifequal request.path '/accounts/logout/'  %}
-	<a href="/accounts/login/">login</a> or <a href="/accounts/register/">register</a>	
+	<a href="/accounts/login/">Login</a> or <a href="/accounts/register/">Register</a>	
 	{% else %}
-	<a href="/accounts/login/?next={{ request.path }}">login</a> or <a href="/accounts/register/?next={{ request.path }}">register</a>
+	<a href="/accounts/login/?next={{ request.path }}">Login</a> or <a href="/accounts/register/?next={{ request.path }}">Register</a>
 	{% endifequal %}
 	{% endif %}
       </div>
@@ -92,9 +92,9 @@
     </div>
     <!-- end page -->
     <div id="footer" class="hdiv">
-      <p class="legal">&copy;2010 GiftforGif.com <a href="/privacy/">Privacy Policy</a></p>
+      <p class="legal">&copy;2010 GiftforGift.com <a href="/privacy/">Privacy Policy</a></p>
       
-      <p class="credits">Modified from Roundhouse by  <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+      <p class="credits">Modified from <a href="http://www.freecsstemplates.org/">Roundhouse</a>.</p>
     </div>
 <script type="text/javascript">
 
