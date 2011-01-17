@@ -11,12 +11,20 @@ Register
 
 
 {% block content %}
-<form method="post" action=".">
+<h1>Register</h1>
+<div class="login_form">
+<form method="post" action="." >
   {% csrf_token %}
-  {{ form.as_p }}
+  <table >
+  {{ form.as_table }}
   {% if request.REQUEST.next %}
   <input type="hidden" name="next" value="{{ request.REQUEST.next }}" />
   {% endif %}
-  <input type="submit" value="{% trans 'Submit' %}" />
+  <tr>
+    <td></td>
+    <td><input type="submit" value="{% trans 'Register' %}" /></td>
+  </tr>
+  </table>
 </form>
+</div>
 {% endblock %}
